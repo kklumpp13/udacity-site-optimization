@@ -1,9 +1,9 @@
 ## Website Performance Optimization portfolio project
 
-The goal of this project was to optimize the portfolio project site that was provided. We needed meet the following requirements:
-* The index.html page must achieve a PageSpeed Insights score of at least 90 for Mobile and Desktop
-* The views/pizza.html page must render with a consistent frame-rate at 60fps when scrolling
-* The time to resize pizzas is less than 5 ms when using the pizza slider on the views/pizza.html page (time in shown in the browser developer tools)
+The goal of this project was to optimize the starter portfolio project site that was [provided](https://github.com/udacity/frontend-nanodegree-mobile-portfolio). We needed meet the following requirements:
+* The ```index.html``` page must achieve a PageSpeed Insights score of at least 90 for Mobile and Desktop
+* The ```views/pizza.html``` page must render with a consistent frame-rate at 60fps when scrolling
+* The time to resize pizzas is less than 5 ms when using the pizza slider on the ```views/pizza.html``` page (the time in shown in the browser developer tools)
 
 ### Getting started
 
@@ -23,7 +23,7 @@ The goal of this project was to optimize the portfolio project site that was pro
   $> ./ngrok http 8080
   ```
 
-1. Copy the public URL ngrok gives you and running it through PageSpeed Insights.
+1. Copy the public URL ngrok gives you and run it through PageSpeed Insights.
 
 
 ### Optimizations Performed
@@ -35,7 +35,7 @@ The goal of this project was to optimize the portfolio project site that was pro
 * HTML was minified using the npm package [html-minify](https://www.npmjs.com/package/html-minify)
 * All ```<script>``` tags were moved to the bottom above the closing ```<body>``` tag and ```async``` was added to them where appropriate
 * The Web Font Loader was used to improve the font loading
-* Images were compressed with TinyPNG
+* Images were compressed with [TinyPNG](https://tinypng.com/)
 
 #### Requirment 2: Remove Jank and reduce time to resize pizzas
 * Changed ```querySelector()``` to ```getElementById()```
