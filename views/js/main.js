@@ -441,10 +441,14 @@ var resizePizzas = function(size) {
   // Iterates through pizza elements on the page and changes their widths
   function changePizzaSizes(size) {
     // Switched to getElementsByClassName because it is faster
-    var randomPizzaContainer = document.getElementsByClassName(".randomPizzaContainer");
+    var randomPizzaContainer = document.getElementsByClassName("randomPizzaContainer");
+
+    // Since the pizzas have the same size, we only need the first pizza to calculate the size
+    // Variables are pulled out of for loop to reduce calls
+    var dx = determineDx(randomPizzaContainer[0], size);
+    var newwidth = (randomPizzaContainer[0].offsetWidth + dx) + 'px';
+
     for (var i = 0; i < randomPizzaContainer.length; i++) {
-      var dx = determineDx(randomPizzaContainer[i], size);
-      var newwidth = (randomPizzaContainer[i].offsetWidth + dx) + 'px';
       randomPizzaContainer[i].style.width = newwidth;
     }
   }
@@ -500,8 +504,9 @@ function updatePositions() {
   var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
   var scrollCalc = scrollTop / 1250;
 
-  for (var i = 0; i < items.length; i++) {
-    var phase = Math.sin(scrollCalc + (i % 5));
+  // phase variable is declared in initialisation to prevent it from being created on every iteration
+  for (var i = 0, len = items.length, phase; i < len; i++) {
+    phase = Math.sin(scrollCalc + (i % 5));
     items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
   }
 

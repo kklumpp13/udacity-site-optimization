@@ -36,6 +36,8 @@ The goal of this project was to optimize the starter portfolio project site that
 * All ```<script>``` tags were moved to the bottom above the closing ```<body>``` tag and ```async``` was added to them where appropriate
 * The Web Font Loader was used to improve the font loading
 * Images were compressed with [TinyPNG](https://tinypng.com/)
+* Separate images were served for the pizzeria images in the ```index.html``` and ```pizza.html``` files
+* Hardware accelerated CSS was used to improve performance
 
 #### Requirment 2: Remove Jank and reduce time to resize pizzas
 * Changed ```querySelector()``` to ```getElementById()```
@@ -45,3 +47,4 @@ The goal of this project was to optimize the starter portfolio project site that
 * Extracted variables from loops to prevent unnecessary DOM calls on each iteration
 * Pulled out the ```items``` variable so that it was only called once
 * Added ```randomPizzaContainer``` variable to reduce code duplication
+* Declare phase variable in initialization of loop to prevent it from being created each time the loop is executed
